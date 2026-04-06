@@ -1,0 +1,12 @@
+section,experiment,notebook,dataset,labels_used,label_pct,mAP@0.5,mAP@0.5:0.95,precision,recall,notes
+Part A - Fusion Ablation,RGB-Only Baseline,01_rgb-thermal-baseline.ipynb,LLVIP,12025,100%,0.8946,0.5255,0.921,0.8245,RGB stream only - no thermal. Source: rgb-thermal-simplefusion.ipynb
+Part A - Fusion Ablation,Simple Fusion (50/50),02_simple-fusion-v2_Final_New,LLVIP,12025,100%,0.7815,0.4472,0.8518,0.7769, Fixed equal-weight pixel fusion. BELOW RGB baseline. Source: simplefusionv2 Kaggle notebook (epoch 54)
+Part A - Fusion Ablation,Thermal-Only Baseline,01_rgb-thermal-baseline.ipynb,LLVIP,12025,100%,0.9625,0.66,0.9597,0.9016,Thermal stream only - no RGB. Nighttime upper bound single-modality. Source: rgb-thermal-simplefusion.ipynb
+Part A - Fusion Ablation,Adaptive Fusion V1,04_adaptive-fusion-v02.ipynb,LLVIP,12025,100%,0.9596,0.6174,0.9521,0.9,Illumination-adaptive sigmoid V1. Source: adaptive-fusion-v02-1-2.ipynb
+Part A - Fusion Ablation,Adaptive Fusion V2 (FINAL),04_adaptive-fusion-v02.ipynb,LLVIP,12025,100%,0.9634,0.6449,0.9626,0.9001,BEST Part A. Beats Thermal baseline by 0.0009 mAP@0.5. SOURCE MODEL for CVC-14 SSDA
+Part B - SSDA Pipeline,Zero-Shot Transfer,05_cvc14-ssl-domain-adaptation.ipynb,CVC-14 Night,0,0%,0.0005,0.0001,0,0,No adaptation - blind transfer. Near-total domain collapse. NewTest eval
+Part B - SSDA Pipeline,Warm-Start Supervised,05_cvc14-ssl-domain-adaptation.ipynb,CVC-14 Night,114,3.40%,0.3918,,0.416,0.4386,TRAIN-VAL METRIC (biased - temporal correlation). 114 GT seed labels. mAP@0.5:0.95 not reported for train-val
+Part B - SSDA Pipeline,SSDA Round 1 (Naive PL),05_cvc14-ssl-domain-adaptation.ipynb,CVC-14 Night,114,3.40%,0.5202,0.225,0.4924,0.5222,"NewTest TRUE metric. First naive pseudo-label round (conf>0.50, no IoC filter)"
+Part B - SSDA Pipeline,Phase 2 - IoC SSDA,05_cvc14-ssl-domain-adaptation.ipynb,CVC-14 Night,614,18.10%,0.6264,0.3066,0.6485,0.5873,NewTest eval. IoC flip-consistency filter applied. All 614 GT labels used. +20.4 mAP vs V1
+Part B - SSDA Pipeline,Phase 3A - Best Recall (No Thermal Aug),05_cvc14-ssl-domain-adaptation.ipynb,CVC-14 Night,614,18.10%,0.677,0.3279,0.6851,0.6869,NewTest eval. BEST RECALL in entire project (0.6869). Safety-critical model
+Part B - SSDA Pipeline,Phase 3B - FINAL (Thermal Augs),05_cvc14-ssl-domain-adaptation.ipynb,CVC-14 Night,614,18.10%,0.7164,0.3655,0.7149,0.6452,NewTest eval. BEST OVERALL mAP@0.5. Thermal-specific augmentations applied. 1433% improvement from zero-shot
