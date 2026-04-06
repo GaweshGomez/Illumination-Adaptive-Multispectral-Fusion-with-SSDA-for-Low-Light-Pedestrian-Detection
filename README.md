@@ -24,25 +24,32 @@ The pipeline combines two major components:
 ```
 adaptive-multispectral-fusion-ssda/
 │
-├── notebooks/
+├── 📁 Notebooks/
 │   ├── 01_adaptive_fusion_llvip.ipynb       ← Part A: Adaptive fusion training on LLVIP
 │   ├── 02_simplefusionv2.ipynb              ← Part A: Corrected Simple Fusion 50/50 baseline
 │   ├── 03_rgb_thermal_baseline.ipynb        ← Part A: RGB-Only and Thermal-Only baselines
 │   └── 04_cvc14_ssda_pipeline.ipynb         ← Part B: Full SSDA pipeline (Cells 1–51)  ← START HERE
 │
-├── docs/
+├── 📁 docs/
 │   ├── Chapter_4_Dataset_Preparation.md     ← LLVIP, CVC-14, preprocessing, domain gap
-│   ├── Chapter_5_System_Design.md           ← Fusion module, SSDA pipeline, IoC filter
-│   └── assets/
-│       └── system_architecture.png          ← Full system architecture diagram
+│   └── Chapter_5_System_Design.md           ← Fusion module, SSDA pipeline, IoC filter
 │
-├── results/
-│   └── final_results_VERIFIED.csv           ← All 11 experiments, verified metrics
+├── 📁 figures/                              ← All thesis and report figures
+│   ├── Figure_4_1_LLVIP_Image_Pairs
+│   ├── Figure_4_2_Illumination_Distribution_Sigmoid
+│   ├── Figure_4_3_CVC14_FIR_Annotations
+│   ├── Figure_5_2_Sigmoid_Fusion_Weight
+│   ├── Figure_5_4_Convergence_Curve
+│   ├── Figure_5_6_IoC_Survival_Funnel
+│   ├── Figure_6_1_SSDA_Progressive_Chart
+│   ├── Figure_6_3_PR_Curves
+│   └── System_Architecture_Final_Canva
 │
-├── models/
-│   └── README.md                            ← Model download instructions (weights on Kaggle)
+├── 📁 results/
+│   └── final_results.csv                    ← All 11 experiments, verified metrics
 │
 ├── .gitignore
+├── LICENSE
 ├── requirements.txt
 └── README.md
 ```
